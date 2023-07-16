@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "PTRootUI";
+  src: url("/PTRootUI.woff2") format("woff2-variations"),
+    url("/PTRootUI.woff") format("woff-variations");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}

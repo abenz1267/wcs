@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    "lit-a11y",
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "plugin:lit-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:storybook/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "root": true
+}

@@ -1,0 +1,36 @@
+{
+  "name": "vitelit",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "lit": "^2.7.6"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^7.2.3",
+    "@storybook/addon-essentials": "^7.2.3",
+    "@storybook/addon-links": "^7.2.3",
+    "@storybook/blocks": "^7.2.3",
+    "@storybook/web-components": "^7.2.3",
+    "@storybook/web-components-vite": "^7.2.3",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-lit-a11y": "^1.1.0-next.1",
+    "eslint-plugin-storybook": "^0.6.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.2.3",
+    "ts-lit-plugin": "^1.2.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.4.0",
+    "vite-tsconfig-paths": "^4.2.0"
+  }
+}
