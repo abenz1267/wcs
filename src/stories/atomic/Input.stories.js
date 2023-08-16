@@ -42,8 +42,8 @@ const Template = ({
         label="${label}"
         type="${type}"
         value="${value}"
-        ${required ? "required" : ""}
-        ${disabled ? "disabled" : ""}
+        .required=${required}
+        .disabled=${disabled}
         error="${error}"
       ></x-input>
     </theme-provider>
