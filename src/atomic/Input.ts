@@ -115,9 +115,16 @@ export class Input extends FormValue {
         @input=${(e: InputEvent) => {
           this.value = (e.target as HTMLInputElement).value;
           this._internals.setFormValue(this.value);
+
+          if (this.error !== "") {
+            this.error = "";
+          }
         }}
       />
-      ${when(this.error !== "", () => html`<span>${this.error}</span>`)}
+      ${when(
+        this.error !== "",
+        () => html`${this.error.split(";").map((e) => html`<span>${e}</span>`)}`
+      )}
     `;
   }
 }

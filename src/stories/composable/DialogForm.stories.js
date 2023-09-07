@@ -30,7 +30,7 @@ export default {
 const Template = ({ theme, background, title }) =>
   html`
     <theme-provider theme="${theme}" background="${background}">
-      <x-dialog title="${title}">
+      <x-dialog name="main" title="${title}">
         <x-form id="mainform">
           <form>
             <x-input name="firstname" label="Fistname" initialFocus></x-input>

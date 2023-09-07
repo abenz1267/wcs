@@ -25,10 +25,26 @@ export class Form extends LitElement {
     if (btn === null) {
       console.error("Missing form submit button");
     } else {
-      btn.addEventListener("click", () => {
-        const data = new FormData(form!);
-        console.log(Object.fromEntries(data));
-        form?.submit();
+      btn.addEventListener("click", async () => {
+        if (form == null) {
+          return;
+        }
+
+        // const data = new FormData(form!);
+        // console.log(Object.fromEntries(data));
+        // form?.submit();
+        // form?.serialize();
+        const resp = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form!),
+        });
+
+        if (resp.headers.get("X-RedirectURL") !== null) {
+          document.location.href = resp.headers.get("X-RedirectURL")!;
+          return;
+        }
+
+        document.querySelector("#ajax")!.innerHTML = await resp.text();
       });
     }
 

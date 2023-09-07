@@ -8,12 +8,17 @@ export class Dialog extends LitElement {
   @property()
   title = "Modal Title";
 
+  @property()
+  name = "";
+
   @state()
   _hasOpenSubDialog = false;
 
   firstUpdated() {
     this.setAttribute("role", "dialog");
     this.tabIndex = 0;
+
+    this._addCloseListener();
 
     const initialFocus: HTMLElement | null =
       this.querySelector("[initialFocus]");
@@ -58,6 +63,7 @@ export class Dialog extends LitElement {
       inset: 0;
       background: var(--modal-backdrop);
       backdrop-filter: blur(2px);
+      z-index: 10000;
     }
 
     background-provider {
@@ -107,4 +113,34 @@ export class Dialog extends LitElement {
       </background-provider>
     `;
   }
+
+  private _addCloseListener() {
+    const trigger = this.querySelector(`x-button[target="${this.name}"]`);
+
+    trigger?.addEventListener("click", () => {
+      this._emitCloseEvent();
+    });
+
+    trigger?.addEventListener("keypress", (event) => {
+      const e = event as KeyboardEvent;
+
+      switch (e.code) {
+        case "Enter":
+        case "Space":
+          this._emitCloseEvent();
+          break;
+        default:
+          return;
+      }
+    });
+  }
+
+  private _emitCloseEvent = () => {
+    this.dispatchEvent(
+      new CustomEvent("dialog-closed", {
+        bubbles: true,
+        composed: true,
+      })
+    );
+  };
 }
